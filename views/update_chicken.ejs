@@ -1,0 +1,65 @@
+
+<!-- include header -->
+<%- include('include/_header') %>
+<!-- /include header -->
+
+  <!-- Main Site -->
+  <main id="site-main">
+    <div class="container">
+        <div class="box-nav d-flex justify-between">
+           <div class="filter">
+               <a href="/"><i class="fas fa-angle-double-left"></i> All Chickens</a>
+           </div>
+        </div>
+        <div class="form-title text-center">
+            <h2 class="text-dark">Update Chicken</h2>
+            <span class="text-light">Use the below form to Update your chicken</span>
+        </div>
+
+        <!-- add chicken form -->
+         <!-- form handling -->
+ <form method="POST" id="update_chicken">
+    <div class="new_chicken">
+        <div class="form-group">
+            <label for="name" class="text-light">Name</label>
+            <input type="hidden" name="id" value="<%= chicken._id %>">
+            <input type="text" name="name" value="<%= chicken.name %>" placeholder="Mark Stoenis">
+        </div>
+        <div class="form-group">
+            <label for="birthday" class="text-light">Birthday</label>
+            <input type="date" name="birthday" value="<%= moment(chicken.birthday).format('YYYY-MM-DD')%>">
+        </div>
+        <div class="form-group">
+            <label for="weight" class="text-light">weight</label>
+            <input type="text" name="weight" value="<%= chicken.weight%>" placeholder="0.0">
+        </div>
+        <div class="form-group">
+            <label for="steps" class="text-light">steps</label>
+            <input type="text" name="steps" value="<%= chicken.steps%>" placeholder="0">
+        </div>
+        <div class="form-group">
+            <label for="isRunning" class="text-light">isRunning</label>
+            <div class="radio inline">
+                <input type="radio" id="radio-4" name="isRunning" value="false" <%= chicken.isRunning == 'false' ? 'checked' : '' %> >
+                <label for="radio-4" class="radio-label">false</label>
+            </div>
+            <div class="radio inline">
+                <input type="radio" id="radio-5" name="isRunning" value="true" <%= chicken.isRunning == 'true' ? 'checked' : '' %> >
+                <label for="radio-5" class="radio-label">true</label>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn text-dark update">Save</button>
+        </div>
+
+    </div>
+</form>
+       
+    </div>
+</main>
+<!-- /Main Site -->
+
+<!-- include footer -->
+<%- include('include/_footer') %>
+<!-- /include footer -->

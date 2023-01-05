@@ -1,0 +1,22 @@
+<% for(var i = 0; i < chickens.length; i++) { %>
+<tr>
+    <td><%= i + 1 %></td>
+    <td><%= chickens[i].name %></td>
+    <td><%= moment(chickens[i].birthday).format('YYYY-MM-DD')%></td>
+    <td><%= chickens[i].weight %></td>
+    <td><%= chickens[i].isRunning %></td>
+    <td><%= chickens[i].steps %></td>
+    <td>
+        <a href="/update-chicken?id=<%= chickens[i]._id%>" class="btn border-shadow update">
+            <span class="text-gradient"><i class="fas fa-pencil-alt"></i></span>
+        </a>
+        <a class="btn border-shadow delete" data-id=<%= chickens[i]._id%> >
+            <span class="text-gradient"><i class="fas fa-times"></i></span>
+        </a>
+        <a class="btn border-shadow increase" data-id=<%= chickens[i]._id%> >
+            <span class="text-gradient"><i class="fas fa-plus"></i></span>
+        </a>
+    </td>
+    
+</tr>
+<% } %>
